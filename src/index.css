@@ -1,0 +1,34 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+.app {
+  font-family: "Roboto", sans-serif;
+  @apply box-border bg-black h-screen text-gray-50;
+}
+
+/* bg color filter*/
+.filter {
+  @apply bg-indigo-900 bg-opacity-20 h-full;
+}
+
+h1, h2, h3, h4 {
+  font-family: "Poppins", sans-serif;
+}
+
+.logo {
+  @apply flex justify-center px-8;
+}
+
+.motto {
+  @apply -mt-4 flex justify-center text-lg opacity-80 mb-32;
+}
+
+.content {
+  @apply w-3/4 mx-auto py-8;
+}
+
+.credit {
+  @apply text-xs flex justify-center;
+}
+
+/*# sourceMappingURL=index.css.map */

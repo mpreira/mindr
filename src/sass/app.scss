@@ -1,0 +1,22 @@
+// app
+
+.app{
+  font-family: "Roboto", sans-serif;
+  @apply box-border bg-black h-screen text-gray-50;
+}
+
+/* bg color filter*/
+.filter{
+  @apply bg-indigo-900 bg-opacity-20 h-full;
+}
+
+//titles
+h1, h2, h3, h4{
+  font-family: 'Poppins', sans-serif;
+}
+
+//logo
+
+.logo{
+  @apply flex justify-center px-8;
+}
