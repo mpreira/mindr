@@ -3,12 +3,12 @@
 @tailwind utilities;
 .app {
   font-family: "Roboto", sans-serif;
-  @apply box-border bg-black h-screen text-gray-50;
+  @apply box-border bg-black h-screen overflow-auto text-gray-50;
 }
 
 /* bg color filter*/
 .filter {
-  @apply bg-indigo-900 bg-opacity-20 h-full;
+  @apply bg-blue-900 bg-opacity-10 h-full overflow-auto;
 }
 
 h1, h2, h3, h4 {
@@ -24,11 +24,28 @@ h1, h2, h3, h4 {
 }
 
 .content {
-  @apply w-3/4 mx-auto py-8;
+  @apply w-3/4 mx-auto py-8 h-2/3 overflow-auto;
 }
 
 .credit {
-  @apply text-xs flex justify-center;
+  @apply text-xs flex justify-center opacity-60;
+}
+
+.search {
+  @apply w-full flex items-center justify-between bg-gray-700 rounded-2xl bg-opacity-10 p-3 mb-4;
+}
+.search .input {
+  @apply bg-transparent w-11/12 opacity-30 placeholder-opacity-10;
+}
+
+.button {
+  @apply px-4 py-3 rounded-2xl font-semibold text-sm text-opacity-30 shadow;
+}
+.button.primary {
+  @apply bg-indigo-600 hover:bg-indigo-800;
+}
+.button.outlined-indigo {
+  @apply border border-indigo-600;
 }
 
 /*# sourceMappingURL=index.css.map */

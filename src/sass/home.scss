@@ -5,10 +5,10 @@
 
 //content
 .content{
-  @apply w-3/4 mx-auto py-8;
+  @apply w-3/4 mx-auto py-8 h-2/3 overflow-auto;
 }
 
 // footer
 .credit{
-  @apply text-xs flex justify-center;
+  @apply text-xs flex justify-center opacity-60;
 }

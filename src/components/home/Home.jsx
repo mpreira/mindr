@@ -12,7 +12,10 @@ const Home = () => {
           </p>
 
           {/*content*/}
-          <Search />
+          <div>
+              <Search />
+          </div>
+
       </>
 
   )

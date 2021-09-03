@@ -1,0 +1,8 @@
+// search input
+.search{
+  @apply w-full flex items-center justify-between bg-gray-700 rounded-2xl bg-opacity-10 p-3 mb-4;
+
+  .input{
+    @apply bg-transparent w-11/12 opacity-30 placeholder-opacity-10;
+  }
+}

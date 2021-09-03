@@ -1,13 +1,12 @@
 // app
-
 .app{
   font-family: "Roboto", sans-serif;
-  @apply box-border bg-black h-screen text-gray-50;
+  @apply box-border bg-black h-screen overflow-auto text-gray-50;
 }
 
 /* bg color filter*/
 .filter{
-  @apply bg-indigo-900 bg-opacity-20 h-full;
+  @apply bg-blue-900 bg-opacity-10 h-full overflow-auto;
 }
 
 //titles
@@ -16,7 +15,6 @@ h1, h2, h3, h4{
 }
 
 //logo
-
 .logo{
   @apply flex justify-center px-8;
 }
