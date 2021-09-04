@@ -1,12 +1,12 @@
 // app
 .app{
   font-family: "Roboto", sans-serif;
-  @apply box-border bg-black h-screen overflow-auto text-gray-50;
+  @apply box-border bg-black md:h-screen h-full overflow-y-auto w-auto text-gray-50;
 }
 
 /* bg color filter*/
 .filter{
-  @apply bg-blue-900 bg-opacity-10 h-full overflow-auto;
+  @apply bg-blue-900 bg-opacity-10 md:h-screen h-full overflow-auto;
 }
 
 //titles
@@ -16,5 +16,10 @@ h1, h2, h3, h4{
 
 //logo
 .logo{
-  @apply flex justify-center px-8;
+  @apply flex justify-center 2xl:w-1/3 xl:w-2/4 lg:w-3/4 lg:mx-auto w-full px-8;
+}
+
+// footer
+.credit{
+  @apply text-xs flex justify-center opacity-60 mt-16 pb-8;
 }

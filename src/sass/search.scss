@@ -1,8 +1,22 @@
-// search input
+// search
+.search-form{
+  @apply 2xl:flex 2xl:flex-col 2xl:items-center 2xl:w-full;
+}
+
 .search{
-  @apply w-full flex items-center justify-between bg-gray-700 rounded-2xl bg-opacity-10 p-3 mb-4;
+
+  @apply 2xl:flex 2xl:justify-center 2xl:w-full;
+
+  .label{
+    @apply text-sm ml-10 lowercase text-opacity-40;
+  }
+
+  .bg{
+    @apply 2xl:w-1/2 w-full flex items-center justify-between bg-gray-700 rounded-2xl bg-opacity-10 p-3 mb-4;
+  }
 
   .input{
-    @apply bg-transparent w-11/12 opacity-30 placeholder-opacity-10;
+    @apply bg-transparent focus:outline-none focus:ring-0 focus:border-transparent w-11/12 opacity-30 placeholder-opacity-10 font-light lg:text-base text-sm pl-1;
   }
+
 }

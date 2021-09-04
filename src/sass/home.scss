@@ -1,14 +1,9 @@
 // slogan
 .motto{
-  @apply -mt-4 flex justify-center text-lg opacity-80 mb-32;
+  @apply -mt-4 flex justify-center lg:text-2xl text-lg opacity-80 mb-32;
 }
 
 //content
 .content{
-  @apply w-3/4 mx-auto py-8 h-2/3 overflow-auto;
-}
-
-// footer
-.credit{
-  @apply text-xs flex justify-center opacity-60;
+  @apply w-3/4 mx-auto py-8 lg:h-auto h-full overflow-auto;
 }
