@@ -13,6 +13,11 @@
 
 h1, h2, h3, h4 {
   font-family: "Poppins", sans-serif;
+  @apply font-extralight italic;
+}
+
+h2 {
+  @apply text-3xl mt-12 mb-8 tracking-widest;
 }
 
 .logo {
@@ -21,6 +26,16 @@ h1, h2, h3, h4 {
 
 .credit {
   @apply text-xs flex justify-center opacity-60 mt-16 pb-8;
+}
+
+.button {
+  @apply px-4 py-3 rounded-2xl font-semibold text-sm text-opacity-30 shadow;
+}
+.button.primary {
+  @apply bg-indigo-600 hover:bg-indigo-900;
+}
+.button.outlined-indigo {
+  @apply border border-indigo-600;
 }
 
 .motto {
@@ -48,14 +63,17 @@ h1, h2, h3, h4 {
   @apply bg-transparent focus:outline-none focus:ring-0 focus:border-transparent w-11/12 opacity-30 placeholder-opacity-10 font-light lg:text-base text-sm pl-1;
 }
 
-.button {
-  @apply px-4 py-3 rounded-2xl font-semibold text-sm text-opacity-30 shadow;
+.movie {
+  @apply w-full flex border border-gray-900 rounded-2xl p-4;
 }
-.button.primary {
-  @apply bg-indigo-600 hover:bg-indigo-900;
+.movie .title {
+  @apply text-lg font-semibold w-full;
 }
-.button.outlined-indigo {
-  @apply border border-indigo-600;
+.movie .officialScore {
+  @apply text-yellow-500 text-xs flex items-center w-full h-auto;
+}
+.movie .director {
+  @apply text-sm text-center;
 }
 
 /*# sourceMappingURL=index.css.map */
