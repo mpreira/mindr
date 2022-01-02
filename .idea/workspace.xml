@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e48e4373-530f-4a08-9d67-5e0a930c5990" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/front/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/sass/movie.scss" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/sass/movie.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/tailwind.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/front/tailwind.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -14,6 +17,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="1yy8vvhcDbsHsTe8Mrv13tt8q28" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -40,6 +46,8 @@
       <updated>1633212702512</updated>
       <workItem from="1633212703834" duration="693000" />
       <workItem from="1633420703153" duration="421000" />
+      <workItem from="1640700343824" duration="1048000" />
+      <workItem from="1641120155052" duration="1520000" />
     </task>
     <servers />
   </component>
