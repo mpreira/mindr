@@ -4,7 +4,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faPlus, faSearch} from "@fortawesome/free-solid-svg-icons";
 
 //component
-import SearchActor from "./SearchActor";
 import Results from "../../home/results/Results";
 import {faUser} from "@fortawesome/free-regular-svg-icons";
 
@@ -15,6 +14,8 @@ const Search = () => {
     const [firstId, setFirstId] = useState({});
 
     const [actorTwo, setActorTwo] = useState('');
+    const [secondResult, setSecondResult] = useState({});
+    const [secondId, setSecondId] = useState({});
 
     const apiKey = '32b503b0983ae60bd760829cf51f0045';
     const language = '&language=fr-FR';
@@ -26,6 +27,7 @@ const Search = () => {
         // étape 3: faire la même chose pour le deuxième acteur
         // étape 4: faire une recherche discover avec les deux ID et les credits
 
+    // Acteur 1
     const handleActorOne = e => {
         setActorOne(e.target.value);
         console.log(actorOne);
@@ -34,22 +36,22 @@ const Search = () => {
     const firstActor = actorOne.replaceAll(' ', '+');
     const firstActorQuery = `https://api.themoviedb.org/3/search/person?api_key=${apiKey}&query=${firstActor}&${language}`;
 
-    // const handleActorTwo = e =>{
-    //     setActorTwo(e.target.value);
-    //     console.log(actorTwo);
-    // }
+    // Acteur 2
+    const handleActorTwo = e =>{
+        setActorTwo(e.target.value);
+        console.log(actorTwo);
+    }
 
-    // const secondActor = actorTwo.replaceAll(' ', '+');
-    // const secondActorQuery = `https://api.themoviedb.org/3/search/person?api_key=${apiKey}&query=${secondActor}&${language}`;
+    const secondActor = actorTwo.replaceAll(' ', '+');
+    const secondActorQuery = `https://api.themoviedb.org/3/search/person?api_key=${apiKey}&query=${secondActor}&${language}`;
 
     // requests
     const fetchFirstActor = () => {
         axios
             .get(firstActorQuery)
             .then((response) => {
-                setFirstResult(response.data)
                 setFirstId(response.data.results[0].id)
-                console.log(response)
+                console.log(response.data.results[0].id)
                 console.log(firstActorQuery)
             })
             .catch((errors) => {
@@ -57,16 +59,25 @@ const Search = () => {
             });
     };
 
-    // const fetchSecondActor =
-    //     axios
-    //         .get(secondActorQuery)
-    // ;
+    const fetchSecondActor = () => {
+        axios
+            .get(secondActorQuery)
+            .then((res) => {
+                setSecondId(res.data.results[0].id)
+                console.log(res.data.results[0].id)
+                console.log(secondActorQuery)
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+    };
 
     const handleSubmit = e => {
         e.preventDefault();
         setSubmitted(true);
         console.log("Formulaire soumis !");
         fetchFirstActor();
+        fetchSecondActor();
     }
 
     const toggleFilters = () => {
@@ -109,7 +120,7 @@ const Search = () => {
                               autoComplete="on"
                               id={"actorTwo"}
                               value={actorTwo}
-                              // onChange={e => handleActorTwo(e)}
+                              onChange={e => handleActorTwo(e)}
                           />
                       </div>
                   </div>
@@ -146,7 +157,13 @@ const Search = () => {
           </form>
 
           {/* affichage résultats */}
-          {submitted? <Results actorOne={actorOne} /> : null}
+          {
+              submitted?
+                  <>
+                      <Results />
+                      {firstId} / {secondId}
+                  </>
+                  : null}
       </>
   )
 }
