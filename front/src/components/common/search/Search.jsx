@@ -10,11 +10,11 @@ import {faUser} from "@fortawesome/free-regular-svg-icons";
 const Search = () => {
 
     const [actorOne, setActorOne] = useState('');
-    const [firstResult, setFirstResult] = useState({});
+    // const [firstResult, setFirstResult] = useState({});
     const [firstId, setFirstId] = useState({});
 
     const [actorTwo, setActorTwo] = useState('');
-    const [secondResult, setSecondResult] = useState({});
+    // const [secondResult, setSecondResult] = useState({});
     const [secondId, setSecondId] = useState({});
 
     const apiKey = '32b503b0983ae60bd760829cf51f0045';
@@ -161,7 +161,6 @@ const Search = () => {
               submitted?
                   <>
                       <Results />
-                      {firstId} / {secondId}
                   </>
                   : null}
       </>
