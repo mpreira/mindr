@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import axios from "axios";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faPlus, faSearch} from "@fortawesome/free-solid-svg-icons";
@@ -48,28 +48,31 @@ const Search = () => {
     // request for movies with both actors
     const discover = `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&with_cast=${firstId},${secondId}&${language}`;
 
+    useEffect(() => {
+        axios.get(discover).then((result) => {
+            setMovie(result.data.results);
+            console.log(result.data.results);
+        });
+        // setSubmitted(false)
+    }, [firstId, secondId]);
+
+    useEffect(() => {
+        if(submitted) {
+            axios.get(firstActorQuery).then((response) => {
+                setFirstId(response.data.results[0].id);
+                console.log(response.data.results[0].id);
+                axios.get(secondActorQuery).then((res) => {
+                    setSecondId(res.data.results[0].id);
+                });
+            });
+        }
+    }, [submitted])
+
     const handleSubmit = e => {
         e.preventDefault();
         setSubmitted(true);
         console.log("Formulaire soumis !");
-        axios.get(firstActorQuery)
-            .then((response) => {
-                setFirstId(response.data.results[0].id)
-                console.log(response.data.results[0].id)
-                axios.get(secondActorQuery)
-                    .then((res) => {
-                        setSecondId(res.data.results[0].id)
-                        axios.get(discover)
-                            .then((result) => {
-                                setMovie(result.data.results)
-                                console.log(result.data.results)
-                            });
-                    })
-            })
-        ;
     }
-
-
 
     const toggleFilters = () => {
         console.log("Joli petit filtre en plus !");
@@ -150,9 +153,7 @@ const Search = () => {
           {/* affichage résultats */}
           {
               submitted?
-                  <>
-                      <Results />
-                  </>
+                      <Results movie={movie} />
                   : null}
       </>
   )
