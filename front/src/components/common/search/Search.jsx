@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, {useState} from "react";
 import axios from "axios";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faPlus, faSearch} from "@fortawesome/free-solid-svg-icons";
@@ -10,21 +10,17 @@ import {faUser} from "@fortawesome/free-regular-svg-icons";
 const Search = () => {
 
     const [actorOne, setActorOne] = useState('');
-    // const [firstResult, setFirstResult] = useState({});
-    const [firstId, setFirstId] = useState({});
+    const [firstId, setFirstId] = useState();
 
     const [actorTwo, setActorTwo] = useState('');
-    // const [secondResult, setSecondResult] = useState({});
-    const [secondId, setSecondId] = useState({});
+    const [secondId, setSecondId] = useState();
+
+    const [movie, setMovie] = useState([]);
 
     const apiKey = '32b503b0983ae60bd760829cf51f0045';
     const language = '&language=fr-FR';
 
     const [submitted, setSubmitted] = useState(false);
-
-    let firstPromise = null;
-    let secondPromise = null;
-    let thirdPromise = null;
 
         // étape 1: lier l'input au query search par nom
         // étape 2: récupérer l'id
@@ -49,40 +45,8 @@ const Search = () => {
     const secondActor = actorTwo.replaceAll(' ', '+');
     const secondActorQuery = `https://api.themoviedb.org/3/search/person?api_key=${apiKey}&query=${secondActor}&${language}`;
 
-    // requests
-    const fetchFirstActor = () => {
-        axios
-            .get(firstActorQuery)
-            // .then((response) => {
-            //     setFirstId(response.data.results[0].id)
-            //     console.log(response.data.results[0].id)
-            //     console.log(firstActorQuery)
-            // })
-            .catch((errors) => {
-                console.log(errors);
-            });
-    };
-
-    const fetchSecondActor = () => {
-        axios
-            .get(secondActorQuery)
-            // .then((res) => {
-            //     setSecondId(res.data.results[0].id)
-            //     console.log(res.data.results[0].id)
-            //     console.log(secondActorQuery)
-            // })
-            .catch((err) => {
-                console.log(err);
-            });
-    };
-
+    // request for movies with both actors
     const discover = `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&with_cast=${firstId},${secondId}&${language}`;
-
-    const fetchMovies = () => {
-        axios
-            .get(discover)
-            .catch((err) => console.log(err))
-    };
 
     const handleSubmit = e => {
         e.preventDefault();
@@ -91,15 +55,18 @@ const Search = () => {
         axios.get(firstActorQuery)
             .then((response) => {
                 setFirstId(response.data.results[0].id)
+                console.log(response.data.results[0].id)
                 axios.get(secondActorQuery)
                     .then((res) => {
                         setSecondId(res.data.results[0].id)
                         axios.get(discover)
-                            .then((final) => {console.log(final)});
+                            .then((result) => {
+                                setMovie(result.data.results)
+                                console.log(result.data.results)
+                            });
                     })
             })
         ;
-        fetchSecondActor();
     }
 
 
@@ -170,7 +137,6 @@ const Search = () => {
                   <button
                       type="submit"
                       className="button primary"
-                      onClick={fetchMovies}
                   >
                       <FontAwesomeIcon
                           icon={faSearch}

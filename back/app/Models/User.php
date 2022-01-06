@@ -45,4 +45,13 @@ class User extends Authenticatable
         'last_logged_in' => 'datetime',
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * get user's comments
+     */
+
+    public function comments(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(Comment::class);
+    }
 }
