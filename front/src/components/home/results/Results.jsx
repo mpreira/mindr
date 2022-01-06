@@ -7,16 +7,18 @@ const imageUrl = 'https://image.tmdb.org/t/p/w500/';
 
 const Results = ({movie}) => {
 
-    // requete discover
+    const displayResults =
+        movie.map((film) => (
+            <p key={film.id}>{film.original_title}</p>
+        ))
+    ;
 
     if (!movie) return <p>Aucun résultat</p>;
 
     return(
         <>
             <h2>Résultats</h2>
-            {movie.map((film) => (
-                <p key={film.id}>{film.original_title}</p>
-            ))}
+            {displayResults}
         </>
     )
 }
