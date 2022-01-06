@@ -1,29 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="ChangeListManager">
-    <list default="true" id="e48e4373-530f-4a08-9d67-5e0a930c5990" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/mindr.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/mindr.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/components/common/search/Search.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/components/common/search/Search.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/components/common/search/SearchActor.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/components/common/search/SearchActor.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/components/home/results/Results.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/components/home/results/Results.jsx" afterDir="false" />
-    </list>
-    <option name="SHOW_DIALOG" value="false" />
-    <option name="HIGHLIGHT_CONFLICTS" value="true" />
-    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
-    <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
-    <pharConfigPath>$PROJECT_DIR$/back/composer.json</pharConfigPath>
-    <execution />
-  </component>
-  <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="MarkdownSettingsMigration">
-    <option name="stateVersion" value="1" />
-  </component>
-  <component name="PhpWorkspaceProjectConfiguration">
+  <component name="PhpIncludePathManager">
     <include_path>
       <path value="$PROJECT_DIR$/back/vendor/facade/ignition" />
       <path value="$PROJECT_DIR$/back/vendor/facade/flare-client-php" />
@@ -138,52 +115,10 @@
       <path value="$PROJECT_DIR$/back/vendor/facade/ignition-contracts" />
     </include_path>
   </component>
-  <component name="ProjectId" id="1yy8vvhcDbsHsTe8Mrv13tt8q28" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
-  <component name="ProjectViewState">
-    <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showLibraryContents" value="true" />
-  </component>
-  <component name="PropertiesComponent">
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="WebServerToolWindowFactoryState" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
-    <property name="vue.rearranger.settings.migration" value="true" />
-  </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
-  <component name="TaskManager">
-    <task active="true" id="Default" summary="Default task">
-      <changelist id="e48e4373-530f-4a08-9d67-5e0a930c5990" name="Changes" comment="" />
-      <created>1633212702512</created>
-      <option name="number" value="Default" />
-      <option name="presentableId" value="Default" />
-      <updated>1633212702512</updated>
-      <workItem from="1633212703834" duration="693000" />
-      <workItem from="1633420703153" duration="421000" />
-      <workItem from="1640700343824" duration="1048000" />
-      <workItem from="1641120155052" duration="9016000" />
-      <workItem from="1641212216701" duration="3195000" />
-      <workItem from="1641224453839" duration="4544000" />
-      <workItem from="1641380518325" duration="865000" />
-      <workItem from="1641475285204" duration="4051000" />
-    </task>
-    <servers />
-  </component>
-  <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="3" />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
+  <component name="PhpProjectSharedConfiguration" php_language_level="7.3" />
+  <component name="PhpUnit">
+    <phpunit_settings>
+      <PhpUnitSettings custom_loader_path="$PROJECT_DIR$/back/vendor/autoload.php" />
+    </phpunit_settings>
   </component>
 </project>

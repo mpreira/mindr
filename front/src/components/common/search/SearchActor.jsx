@@ -4,6 +4,11 @@ import {faUser} from "@fortawesome/free-regular-svg-icons";
 
 const SearchActors = props => {
 
+    const [data, setData] = useState({});
+    const handleChange = (e) => {
+        setData({...data,[e.target.name]:e.target.value});
+    };
+
     const [actorOne, setActorOne] = useState(
         localStorage.getItem('actorOne') || ''
     );
@@ -13,10 +18,12 @@ const SearchActors = props => {
 
     const handleActorOne = e => {
         setActorOne(e.target.value);
+        console.log(actorOne);
     }
 
     const handleActorTwo = e =>{
         setActorTwo(e.target.value);
+        console.log(actorTwo);
     }
 
   return(
@@ -31,10 +38,9 @@ const SearchActors = props => {
                       type="text"
                       className="input"
                       placeholder={"saisissez le nom d'un(e) acteur(trice)"}
-                      autoComplete="on"
-                      id={"actorOne"}
-                      value={actorOne}
-                      onChange={e => handleActorOne(e)}
+                      name="actorOne"
+                      value={data.actorOne}
+                      onChange={handleChange}
                   />
               </div>
           </div>

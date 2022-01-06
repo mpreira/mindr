@@ -6,22 +6,67 @@ import {faPlus, faSearch} from "@fortawesome/free-solid-svg-icons";
 //component
 import SearchActor from "./SearchActor";
 import Results from "../../home/results/Results";
+import {faUser} from "@fortawesome/free-regular-svg-icons";
 
 const Search = () => {
 
+    const [actorOne, setActorOne] = useState('');
+    const [firstResult, setFirstResult] = useState({});
+    const [firstId, setFirstId] = useState({});
+
+    const [actorTwo, setActorTwo] = useState('');
+
+    const apiKey = '32b503b0983ae60bd760829cf51f0045';
+    const language = '&language=fr-FR';
+
     const [submitted, setSubmitted] = useState(false);
 
-    const fetchActors = () => {
         // étape 1: lier l'input au query search par nom
-        // étape 2: du résultat, lancer une query by id avec appended credits
+        // étape 2: récupérer l'id
         // étape 3: faire la même chose pour le deuxième acteur
-        // étape 4: croiser les deux listes en fonction des films qui reviennent dans les deux
+        // étape 4: faire une recherche discover avec les deux ID et les credits
+
+    const handleActorOne = e => {
+        setActorOne(e.target.value);
+        console.log(actorOne);
     }
+
+    const firstActor = actorOne.replaceAll(' ', '+');
+    const firstActorQuery = `https://api.themoviedb.org/3/search/person?api_key=${apiKey}&query=${firstActor}&${language}`;
+
+    // const handleActorTwo = e =>{
+    //     setActorTwo(e.target.value);
+    //     console.log(actorTwo);
+    // }
+
+    // const secondActor = actorTwo.replaceAll(' ', '+');
+    // const secondActorQuery = `https://api.themoviedb.org/3/search/person?api_key=${apiKey}&query=${secondActor}&${language}`;
+
+    // requests
+    const fetchFirstActor = () => {
+        axios
+            .get(firstActorQuery)
+            .then((response) => {
+                setFirstResult(response.data)
+                setFirstId(response.data.results[0].id)
+                console.log(response)
+                console.log(firstActorQuery)
+            })
+            .catch((errors) => {
+                console.log(errors);
+            });
+    };
+
+    // const fetchSecondActor =
+    //     axios
+    //         .get(secondActorQuery)
+    // ;
 
     const handleSubmit = e => {
         e.preventDefault();
         setSubmitted(true);
         console.log("Formulaire soumis !");
+        fetchFirstActor();
     }
 
     const toggleFilters = () => {
@@ -33,7 +78,42 @@ const Search = () => {
           <form onSubmit={handleSubmit}>
 
               {/* filtres acteur */}
-              <SearchActor />
+              <>
+                  <div className="search">
+                      <div className="bg">
+                          <FontAwesomeIcon
+                              icon={faUser}
+                              className="h-full flex items-center text-gray-50 opacity-60"
+                          />
+                          <input
+                              type="text"
+                              className="input"
+                              placeholder={"saisissez le nom d'un(e) acteur(trice)"}
+                              name="actorOne"
+                              value={actorOne}
+                              onChange={e => handleActorOne(e)}
+                          />
+                      </div>
+                  </div>
+
+                  <div className="search">
+                      <div className="bg">
+                          <FontAwesomeIcon
+                              icon={faUser}
+                              className="h-full flex items-center text-gray-50 opacity-60"
+                          />
+                          <input
+                              type="text"
+                              className="input"
+                              placeholder={"saisissez le nom d'un(e) acteur(trice)"}
+                              autoComplete="on"
+                              id={"actorTwo"}
+                              value={actorTwo}
+                              // onChange={e => handleActorTwo(e)}
+                          />
+                      </div>
+                  </div>
+              </>
 
               {/*bouton more filters*/}
               <div className="flex w-full justify-center mb-2 mt-8">
@@ -66,7 +146,7 @@ const Search = () => {
           </form>
 
           {/* affichage résultats */}
-          {submitted? <Results /> : null}
+          {submitted? <Results actorOne={actorOne} /> : null}
       </>
   )
 }
