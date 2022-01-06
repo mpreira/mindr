@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import axios from "axios";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faPlus, faSearch} from "@fortawesome/free-solid-svg-icons";
@@ -21,6 +21,10 @@ const Search = () => {
     const language = '&language=fr-FR';
 
     const [submitted, setSubmitted] = useState(false);
+
+    let firstPromise = null;
+    let secondPromise = null;
+    let thirdPromise = null;
 
         // étape 1: lier l'input au query search par nom
         // étape 2: récupérer l'id
@@ -49,11 +53,11 @@ const Search = () => {
     const fetchFirstActor = () => {
         axios
             .get(firstActorQuery)
-            .then((response) => {
-                setFirstId(response.data.results[0].id)
-                console.log(response.data.results[0].id)
-                console.log(firstActorQuery)
-            })
+            // .then((response) => {
+            //     setFirstId(response.data.results[0].id)
+            //     console.log(response.data.results[0].id)
+            //     console.log(firstActorQuery)
+            // })
             .catch((errors) => {
                 console.log(errors);
             });
@@ -62,23 +66,43 @@ const Search = () => {
     const fetchSecondActor = () => {
         axios
             .get(secondActorQuery)
-            .then((res) => {
-                setSecondId(res.data.results[0].id)
-                console.log(res.data.results[0].id)
-                console.log(secondActorQuery)
-            })
+            // .then((res) => {
+            //     setSecondId(res.data.results[0].id)
+            //     console.log(res.data.results[0].id)
+            //     console.log(secondActorQuery)
+            // })
             .catch((err) => {
                 console.log(err);
             });
+    };
+
+    const discover = `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&with_cast=${firstId},${secondId}&${language}`;
+
+    const fetchMovies = () => {
+        axios
+            .get(discover)
+            .catch((err) => console.log(err))
     };
 
     const handleSubmit = e => {
         e.preventDefault();
         setSubmitted(true);
         console.log("Formulaire soumis !");
-        fetchFirstActor();
+        axios.get(firstActorQuery)
+            .then((response) => {
+                setFirstId(response.data.results[0].id)
+                axios.get(secondActorQuery)
+                    .then((res) => {
+                        setSecondId(res.data.results[0].id)
+                        axios.get(discover)
+                            .then((final) => {console.log(final)});
+                    })
+            })
+        ;
         fetchSecondActor();
     }
+
+
 
     const toggleFilters = () => {
         console.log("Joli petit filtre en plus !");
@@ -146,6 +170,7 @@ const Search = () => {
                   <button
                       type="submit"
                       className="button primary"
+                      onClick={fetchMovies}
                   >
                       <FontAwesomeIcon
                           icon={faSearch}
