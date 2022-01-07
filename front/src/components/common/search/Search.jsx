@@ -54,7 +54,7 @@ const Search = () => {
             console.log(result.data.results);
         });
         // setSubmitted(false)
-    }, [firstId, secondId]);
+    }, [firstId, secondId, discover]);
 
     useEffect(() => {
         if(submitted) {
@@ -66,7 +66,7 @@ const Search = () => {
                 });
             });
         }
-    }, [submitted])
+    }, [submitted, firstActorQuery, secondActorQuery])
 
     const handleSubmit = e => {
         e.preventDefault();

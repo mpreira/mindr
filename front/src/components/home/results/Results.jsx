@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faStar } from '@fortawesome/free-solid-svg-icons'
 
@@ -9,7 +9,19 @@ const Results = ({movie}) => {
 
     const displayResults =
         movie.map((film) => (
-            <p key={film.id}>{film.original_title}</p>
+            <article className={"movie"}>
+
+                <img src={`${imageUrl}${film.poster_path}`} className={"poster"} alt={"affiche du film"} />
+
+                <div className={"side-poster"}>
+                    <h3 key={film.id} className={"title"}>{film.original_title}</h3>
+                    <p className={"officialScore"}>
+                        <FontAwesomeIcon icon={faStar} className={"mr-2"} />
+                        <span className={"mt-1"}>{film.vote_average}</span>
+                    </p>
+                </div>
+
+            </article>
         ))
     ;
 
