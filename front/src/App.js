@@ -3,6 +3,7 @@ import {
     BrowserRouter as Router,
     Switch,
 } from "react-router-dom";
+import DOMPurify from 'dompurify';
 
 //layouts
 import HomeLayoutRoute from "./layouts/HomeLayout";
@@ -11,6 +12,10 @@ import HomeLayoutRoute from "./layouts/HomeLayout";
 import Home from "./components/home/Home";
 
 function App() {
+
+    //form security
+    let clean = DOMPurify.sanitize();
+
   return (
     <div className="app">
         <div className="filter">
