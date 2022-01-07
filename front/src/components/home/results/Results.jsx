@@ -13,7 +13,7 @@ const Results = ({movie}) => {
         ))
     ;
 
-    if (!movie) return <p>Aucun résultat</p>;
+    if (movie.length < 1) return <p>Aucun résultat</p>;
 
     return(
         <>
