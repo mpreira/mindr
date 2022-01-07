@@ -5,7 +5,7 @@ import Search from "../common/search/Search";
 
 const Home = () => {
   return(
-      <>
+      <section>
           {/*slogan*/}
           <p className="motto">
               Trouve le film que tu as en tête
@@ -13,7 +13,7 @@ const Home = () => {
 
           {/*content*/}
           <Search />
-      </>
+      </section>
 
   )
 }

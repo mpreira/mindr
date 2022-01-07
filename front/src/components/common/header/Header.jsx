@@ -5,7 +5,7 @@ import  {LogoStrict} from '../../../images';
 
 const Header = () => {
   return(
-      <>
+      <header>
           {/*plus tard message de bienvenue + icone*/}
 
           {/*logo*/}
@@ -16,7 +16,7 @@ const Header = () => {
                   className="logo pt-32"
               />
           </a>
-      </>
+      </header>
   )
 }
 
